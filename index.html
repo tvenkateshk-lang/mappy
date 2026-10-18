@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAPPY | Discover Your Happy Place</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fff5e9;
+    color: #38251d;
+}
+
+header {
+    padding: 24px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: #ff6347;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.tagline {
+    color: #92796b;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 30px 18px 35px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 6vw, 56px);
+    margin: 12px 0;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    color: #ff6347;
+}
+
+.hero p {
+    color: #92796b;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.food-banner {
+    font-size: clamp(25px, 5vw, 40px);
+    letter-spacing: 7px;
+    margin: 25px 0;
+}
+
+.card {
+    background: white;
+    width: min(540px, 92%);
+    margin: 0 auto 40px;
+    padding: 30px;
+    border: 1px solid #f2dccb;
+    border-radius: 24px;
+    box-shadow: 0 15px 45px #70402010;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 25px;
+}
+
+.card > p {
+    color: #92796b;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 19px 0 8px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ead8ca;
+    border-radius: 12px;
+    background: #fffcf8;
+    color: #38251d;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #ff6347;
+    box-shadow: 0 0 0 3px #ff634720;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0;
+    font-size: 14px;
+}
+
+.checkbox-row input {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff6347;
+}
+
+.checkbox-row label {
+    margin: 0;
+}
+
+.main-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 13px;
+    background: #ff6347;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.main-button:hover {
+    background: #e94e36;
+    transform: translateY(-2px);
+}
+
+.status {
+    min-height: 24px;
+    color: #92796b;
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 1.5;
+}
+
+.explore {
+    text-align: center;
+    padding: 5px 15px 40px;
+}
+
+.explore h2 {
+    font-size: 27px;
+}
+
+.chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.chip {
+    background: white;
+    border: 1px solid #f2dccb;
+    padding: 11px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #38251d;
+}
+
+.chip:hover {
+    background: #ffe1c7;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #ffe9d6;
+    color: #92796b;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .hero {
+        padding-top: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="logo">🍕 MAPPY</div>
+        <div class="tagline">YOUR NEXT FAVOURITE PLACE</div>
+    </div>
+    <div>🍔 🍟 🍦</div>
+</header>
+
+<section class="hero">
+    <div class="food-banner">🍕 🍔 🌮 🍟 🍩 🍦</div>
+    <h1>Find your <span>happy place.</span></h1>
+    <p>
+        Craving something delicious? Planning a day out?<br>
+        Let's discover somewhere awesome.
+    </p>
+</section>
+
+<main class="card">
+    <h2>✨ Let's explore!</h2>
+    <p>Tell Mappy what you're looking for.</p>
+
+    <form id="searchForm">
+        <label for="category">🍽️ What do you want to discover?</label>
+        <select id="category">
+            <option>Restaurants</option>
+            <option>Cafes</option>
+            <option>Parks and gardens</option>
+            <option>Shopping malls</option>
+            <option>Shops</option>
+            <option>Cinemas</option>
+            <option>Tourist attractions</option>
+            <option>Museums</option>
+            <option>Hotels</option>
+            <option>Sports and activities</option>
+            <option>Hospitals</option>
+            <option>Libraries</option>
+            <option>Amusement parks</option>
+            <option>Other places</option>
+        </select>
+
+        <label for="location">📍 Where do you want to go?</label>
+        <input
+            id="location"
+            type="text"
+            placeholder="Enter a city or area"
+            required
+        >
+
+        <label for="details">🔎 Any special requests?</label>
+        <input
+            id="details"
+            type="text"
+            placeholder="Pizza, Italian food, gaming..."
+        >
+
+        <label for="budget">💰 Budget per person</label>
+        <select id="budget">
+            <option value="">Any budget</option>
+            <option value="under ₹300">Under ₹300</option>
+            <option value="₹300 to ₹700">₹300 – ₹700</option>
+            <option value="₹700 to ₹1500">₹700 – ₹1,500</option>
+            <option value="over ₹1500">₹1,500+</option>
+        </select>
+
+        <div class="checkbox-row">
+            <input id="rated" type="checkbox" checked>
+            <label for="rated">⭐ Prefer highly rated places</label>
+        </div>
+
+        <button class="main-button" type="submit">
+            🍕 FIND MY SPOT →
+        </button>
+
+        <div id="status" class="status" aria-live="polite">
+            Ready for your next adventure!
+        </div>
+    </form>
+</main>
+
+<section class="explore">
+    <h2>🍟 Quick discoveries</h2>
+    <p>Pick a vibe and start exploring!</p>
+
+    <div class="chips">
+        <button class="chip" type="button"
+            data-category="Restaurants" data-details="pizza">
+            🍕 Pizza spots
+        </button>
+
+        <button class="chip" type="button"
+            data-category="Restaurants" data-details="burgers">
+            🍔 Burger joints
+        </button>
+
+        <button class="chip" type="button"
+            data-category="Cafes" data-details="desserts">
+            🍰 Sweet treats
+        </button>
+
+        <button class="chip" type="button"
+            data-category="Cinemas" data-details="">
+            🎬 Movie time
+        </button>
+
+        <button class="chip" type="button"
+            data-category="Parks and gardens" data-details="">
+            🌳 Outdoors
+        </button>
+
+        <button class="chip" type="button"
+            data-category="Shopping malls" data-details="">
+            🛍️ Shopping
+        </button>
+    </div>
+</section>
+
+<footer>
+    🍩 MADE WITH LOVE BY MAPPY 🍦<br>
+    YOUR WORLD, ONE DISCOVERY AT A TIME
+</footer>
+
+<script>
+const form = document.getElementById("searchForm");
+const category = document.getElementById("category");
+const locationInput = document.getElementById("location");
+const detailsInput = document.getElementById("details");
+const budgetInput = document.getElementById("budget");
+const ratedInput = document.getElementById("rated");
+const statusBox = document.getElementById("status");
+
+function searchPlaces() {
+    const selectedCategory = category.value;
+    const location = locationInput.value.trim();
+    const details = detailsInput.value.trim();
+
+    if (!location) {
+        statusBox.textContent =
+            "📍 Please enter a location first!";
+        locationInput.focus();
+        return;
+    }
+
+    let search = "";
+
+    if (selectedCategory === "Other places") {
+        search = details || "interesting places";
+    } else if (
+        selectedCategory === "Restaurants" ||
+        selectedCategory === "Cafes"
+    ) {
+        search = details
+            ? details + " " + selectedCategory.toLowerCase()
+            : selectedCategory;
+    } else {
+        search = selectedCategory;
+
+        if (details) {
+            search += " " + details;
+        }
+    }
+
+    search += " near " + location;
+
+    if (
+        selectedCategory === "Restaurants" ||
+        selectedCategory === "Cafes"
+    ) {
+        if (budgetInput.value) {
+            search += " " + budgetInput.value + " per person";
+        }
+
+        if (ratedInput.checked) {
+            search += " highly rated";
+        }
+    }
+
+    const url =
+        "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(search);
+
+    statusBox.textContent = "🎉 Opening Google Maps...";
+    window.open(url, "_blank", "noopener");
+}
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    searchPlaces();
+});
+
+document.querySelectorAll(".chip").forEach(function(button) {
+    button.addEventListener("click", function() {
+        category.value = button.dataset.category;
+        detailsInput.value = button.dataset.details;
+
+        document.querySelector(".card").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        locationInput.focus();
+    });
+});
+</script>
+
+</body>
+</html>
